@@ -1,15 +1,13 @@
 {
-  "name": "SN138 Testnet Miner (CGP)",
-  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "name": "SN138 CGP Testnet Miner",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.11-bullseye",
   "features": {
     "ghcr.io/devcontainers/features/node:1": { "version": "20" },
-    "ghcr.io/devcontainers/features/sshd:1": { "version": "latest" },
-    "ghcr.io/devcontainers/features/github-cli:1": { "version": "latest" },
-    "ghcr.io/devcontainers/features/pipx:1": { "version": "latest" }
+    "ghcr.io/devcontainers/features/sshd:1": { "version": "latest" }
   },
-  "forwardPorts": [60012],
+  "forwardPorts": [8091],
   "portsAttributes": {
-    "60012": { "label": "SN138 Miner Axon (testnet)", "onAutoForward": "notify" }
+    "8091": { "label": "SN138 Miner Axon (testnet)", "onAutoForward": "notify" }
   },
-  "postStartCommand": "gh codespace ports visibility 60012:public -c $CODESPACE_NAME 2>/dev/null || true; pm2 resurrect || echo 'No PM2 processes'"
+  "postStartCommand": "gh codespace ports visibility 8091:public -c $CODESPACE_NAME 2>/dev/null || true"
 }
