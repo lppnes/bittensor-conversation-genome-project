@@ -10,5 +10,5 @@
   "portsAttributes": {
     "8091": { "label": "SN138 Miner Axon (testnet)", "onAutoForward": "notify" }
   },
-  "postStartCommand": "gh codespace ports visibility 8091:public -c $CODESPACE_NAME 2>/dev/null || true"
+  "postStartCommand": "gh codespace ports visibility 8091:public -c $CODESPACE_NAME 2>/dev/null || true; pm2 resurrect || (cd /workspaces/bittensor-conversation-genome-project && source venv/bin/activate && pm2 start venv/bin/python3 --name sn138-miner --cwd /workspaces/bittensor-conversation-genome-project -- -m neurons.miner --subtensor.network test --netuid 138 --wallet.name testnet-sn138 --wallet.path /root/testnet-wallets --wallet.hotkey cgp-miner --logging.debug --axon.port 8091) || echo 'Miner restart attempted'"
 }
