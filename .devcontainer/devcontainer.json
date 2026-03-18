@@ -3,9 +3,10 @@
   "image": "mcr.microsoft.com/devcontainers/python:3.11",
   "features": {
     "ghcr.io/devcontainers/features/node:1": { "version": "20" },
-    "ghcr.io/devcontainers/features/sshd:1": { "version": "latest" }
+    "ghcr.io/devcontainers/features/sshd:1": { "version": "latest" },
+    "ghcr.io/devcontainers/features/github-cli:1": { "version": "latest" },
+    "ghcr.io/devcontainers/features/pipx:1": { "version": "latest" }
   },
-  "postCreateCommand": "bash .devcontainer/setup.sh",
   "forwardPorts": [60012],
   "portsAttributes": {
     "60012": { "label": "SN138 Miner Axon (testnet)", "onAutoForward": "notify" }
